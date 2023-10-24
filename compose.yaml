@@ -1,9 +1,8 @@
 version: "3.8"
 
 services:
-  #Это конфигурация Docker Compose для запуска сервера Synapse, используемого протоколом Matrix.
-  #compose synapse-admin
-  synapse-admin:
+  #Это конфигурация Docker Compose для запуска Synapse Admin, используемого для администрирования сервера Synapse.
+  ynapse-admin:
     container_name: synapse-admin
     depends_on:
       - "synapse"
