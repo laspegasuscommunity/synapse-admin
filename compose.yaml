@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  #Это конфигурация Docker Compose для запуска сервера Synapse, используемого протоколом Matrix.
+  #compose synapse-admin
+  synapse-admin:
+    container_name: synapse-admin
+    depends_on:
+      - "synapse"
+    deploy:
+      restart_policy:
+        condition: always
+        delay: 5s
+    image: awesometechnologies/synapse-admin:latest
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
+      traefik.enable: "true"
+    ports:
+      - "91:80"
+
+networks:
+  external:
+    external: true
+    name: $NETWORK
